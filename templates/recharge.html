@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<title>Eliot :: Control to You</title>
+	  <meta charset="utf-8">
+        {% load static %}
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/generic.js' %}"></script>
+    <script src="{% static 'js/material.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/ripples.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/generic.css' %}">
+     <link rel="stylesheet" href="{% static 'css/bootstrap-material-design.css' %}">
+     <link rel="stylesheet" type="text/css" href="{% static 'css/ripples.css' %}">
+</head>
+
+<body style="background:#f7f7f7;">
+
+<nav class="navbar navbar-default login-nav" style="display: none;">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><div><img src="{% static 'images/logo.png'%}"></div></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">WHO</a></li>
+        <li><a href="#">WHAT</a></li>
+        <li><a href="#">WHERE</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid first-container">
+  <div class="login-center-head">
+      <img src="{% static 'images/logo.png' %}">
+      <p>Eliot</p>
+  </div>
+</div>
+
+<div class="container-fluid form-container">
+  <form action="" method="POST" validate id="recharge-form" autocomplete="off">{% csrf_token %}
+
+      <div class="form-group label-floating">
+          <label for="u-device-id" class="control-label">Device Id</label>
+          <input type="text" class="form-control" id="u-device-id">
+        </div>
+      <div class="form-group label-floating">
+          <label for="u-username" class="control-label">User Id</label>
+          <input type="email" class="form-control" id="u-username">
+        </div>
+        <div class="form-group label-floating">
+          <label for="u-recharge-amount" class="control-label">Recharge Amount</label>
+          <input type="text" class="form-control" id="u-recharge-amount">
+        </div>
+        <div style="text-align: center;">
+          <input id="u-proceed" type="submit" value="Proceed">
+        </div>
+  </form>
+</div>
+
+<div style="display: none;">
+    <h2></h2>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#notification" id="notification-trigger">Open dialog</button>
+<!-- dialog samples are at the end of the body to avoid z-index conflicts -->
+</div>
+
+<div id="notification" class="modal fade" tabindex="-1" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body" id="notification-content">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Cool<div class="ripple-container"><div class="ripple ripple-on ripple-out" style="left: 39.6562px; top: 17px; background-color: rgb(0, 150, 136); transform: scale(10.875);"></div><div class="ripple ripple-on ripple-out" style="left: 36.6562px; top: 9px; background-color: rgb(0, 150, 136); transform: scale(10.875);"></div></div></button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script type="text/javascript">
+  $.material.init()
+</script>
+</body>
+</html>
