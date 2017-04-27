@@ -17,7 +17,7 @@ def on_message(client, userdata, msg):
     print device
     print type(msg.payload)
     x =  json.loads(msg.payload)
-    r = requests.post("http://127.0.0.1:8000/update/",data=x)
+    r = requests.post("http://eliot.some-one.me/update/",data=x)
     print r.text
 
 client = mqtt.Client()

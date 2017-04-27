@@ -18,6 +18,8 @@ from django.contrib import admin
 from CustomerDash import views as CustomerViews
 from staffDash import views as StaffViews
 from EliotV27 import views as EliotViews
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -36,4 +38,4 @@ urlpatterns = [
     url(r'^recharge-proceed/',CustomerViews.rechargeProceed,name="Recharge Proceed"),
     url(r'^graphvalues/',CustomerViews.graphvalues,name="graphvalues")
 
-]
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
